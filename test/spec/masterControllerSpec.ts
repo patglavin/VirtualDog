@@ -70,13 +70,27 @@ describe('In the file masterController.ts', () => {
             });
         });
         describe('throwSomething method', () => {
-            
+            it('should broadcast the throw event name', () => {
+                pending('finish in mocking module');
+            });
         });
         describe('feedTheDog method', () => {
-            
+            it('should broadcast the feed event name', () => {
+                pending('finish in mocking module');
+            });
         });
     });
-    describe('the MasterAction object\'s constructor', () => {
-        
+    describe('the MasterAction\'s constructor', () => {
+        let sut: vdogg.MasterAction,
+            actionFunc = (o: vdogg.DogObject) => {};
+        beforeEach(() => {
+            sut = new vdogg.MasterAction('masterActionName', actionFunc);
+        });
+        it('should set actionName to passed in name', () => {
+            expect(sut.actionName).toEqual('masterActionName');
+        });
+        it('should set actionFunc to passed in function', () => {
+            expect(sut.actionFunc).toBe(actionFunc, 'actionFunc should mastch passed in action function');
+        })
     });
 })
